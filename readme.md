@@ -9,10 +9,12 @@ add the following basic setup code inside server.js:
 ```js
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const querystring = require('querystring');
 const secret = require('./client_secret.json'); // ensure you have this file from Google's API console
 const app = express();
 
 app.use(cookieParser());
+app.use(express.static('public'));
 
 const PORT = process.env.PORT || 3000;
 const CLIENT_ID = secret.client_id;
